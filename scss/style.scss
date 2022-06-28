@@ -1,0 +1,629 @@
+@charset "utf-8";
+
+body {
+    padding: 0;
+    margin: 0;
+    font-family: serif;
+}
+
+/*========= ナビゲーションドロップダウンのためのCSS ===============*/
+
+/*==ナビゲーション全体の設定*/
+#header {
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+    flex-direction: column;
+    padding-top: 20px;
+
+    nav ul{
+        list-style: none;
+        text-align: center;
+        padding: 0;
+        margin-top: 30px;
+        display: flex;
+      }
+    
+      @media screen and (max-width:768px){
+        nav ul {
+            margin-top:5px;
+            font-size: 15px;
+      }
+    }
+      
+    @media screen and (max-width:768px){
+        nav {
+            margin-left: auto;
+      }
+    }
+      
+      /*下の階層のulや矢印の基点にするためliにrelativeを指定*/
+      nav ul li{
+        position: relative;
+      }
+      
+      /*ナビゲーションのリンク設定*/
+      nav ul li a{
+        display: block;
+        text-decoration: none;
+        color: #000;
+        padding:15px;
+        transition:all .3s;
+      }
+      @media screen and (max-width:768px){
+        nav ul li a{ 
+            padding: 8px;
+        }
+    }
+
+      
+      nav ul li a:hover{
+        color:#666; 
+      } 
+    
+      .fa-brands {
+          padding-left: 5px;
+      }    
+
+      .fa-moon {
+          padding-left: 5px;
+      }
+}
+
+@media screen and (max-width:768px){
+    #header {
+        display: flex;
+        flex-direction: row;
+        margin: 0;
+        padding-top: 5px;
+        padding: 0 10px;
+        z-index: 1;
+    }
+  }
+
+  
+  /*========= レイアウトのためのCSS ===============*/
+  
+  #container{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  .hideout {
+    width: 150px;
+    height: 70px;
+    margin: 0 auto;
+    display: block;
+  }
+
+  
+@media screen and (max-width:768px){
+    .hideout {
+        width: 80px;
+        height: 40px;
+        margin: 0;
+    }
+}
+
+  
+.hideout2 {
+    width: 100px;
+    height: 50px;
+    display: block;
+    margin: 0 auto;
+}
+  
+  
+  #main-area{
+    width:100%;
+  }
+  
+  @media screen and (max-width:768px){
+  #header,
+  #main-area
+         {
+    width:100%;
+  }
+}
+
+  .mainbox {
+    width: 100%;
+    padding-top: 50px;
+    padding-bottom: 180px;
+  }
+
+    .main_text {
+        line-height: 3;
+        font-size: 18px;
+        text-align: center;
+    }
+
+
+
+  .main_img {
+
+     
+      img {
+        width: 100%;
+
+
+      }
+  }
+  
+  
+  h1{
+    font-size:2rem;
+    text-align: center;
+    text-transform: uppercase;
+    padding: 20px;
+  }
+  
+  h2{
+    font-size:1.2rem;
+    text-align: center;
+    margin: 0 0 30px 0;
+  }
+  
+  p{
+   
+  }
+  
+  small{
+    background:#fff;
+    color:#000;
+    display: block;
+    text-align: center;
+    padding:20px;
+  }
+  
+  
+  section{
+      margin: 0 auto;
+      padding-bottom: 200px;
+
+    p {
+     margin: 0;
+    }
+  }
+
+  @media screen and (max-width:768px){
+      section {
+
+
+      }
+    }
+
+  
+.fade{
+    animation-name: fadein;
+    animation-duration: 3s;
+}
+@keyframes fadein{
+    from{
+    opacity: 0;
+    transform: translatey(20px);
+    }
+    to{
+    opacity: 1;
+    transform: translatey(0);
+    }
+}
+
+/*========= レイアウトのためのCSS ===============*/
+
+#wrapper h2{
+    padding-top: 50px;
+    padding-bottom: 20px;
+    font-size: 30px;
+    text-align:center;
+    margin: 0;
+  }
+  @media screen and (max-width:768px){
+    #wrapper h2 {
+        font-size: 20px;
+        padding: 0;
+    }
+  }
+  
+  /*========= waveを描画するエリア設定 ===============*/
+  
+  
+  .wave{
+    position: relative;
+  }
+  
+  .wave:nth-child(1){
+    background:#fff;  
+  }
+  
+  .wave:nth-child(2){
+    background:#eee;  
+  }
+  
+  .wave:nth-child(3){
+    background:#43C0E4; 
+  }
+  
+  .wave canvas{
+      position: absolute;
+      bottom: 0;
+      left:0;
+      width: 100%;
+  }
+  
+
+  /*========= 流体シェイプを動かす ===============*/
+.fluid {
+    width:30vh;/*横幅*/
+    height: 30vh;/*縦幅*/
+    background:#fff100;/*背景色*/
+    animation: fluidrotate 30s ease 0s infinite;/*アニメーションの設定*/
+    position: absolute;
+    top: -150px;
+    left: 50px;
+  }
+  
+  @keyframes fluidrotate {  
+      
+  0%, 100% {
+      border-radius: 63% 37% 54% 46%/55% 48% 52% 45%;
+  }
+  14% {
+      border-radius: 40% 60% 54% 46%/49% 60% 40% 51%;
+  }
+  28% {
+      border-radius: 54% 46% 38% 62%/49% 70% 30% 51%;
+  }
+  42% {
+      border-radius: 61% 39% 55% 45%/61% 38% 62% 39%;
+  }
+  56% {
+      border-radius: 61% 39% 67% 33%/70% 50% 50% 30%;
+  }
+  70% {
+      border-radius: 50% 50% 34% 66%/56% 68% 32% 44%;
+  }
+  84% {
+      border-radius: 46% 54% 50% 50%/35% 61% 39% 65%;
+  }
+      
+  }
+
+  .fluid2 {
+    width:10vh;/*横幅*/
+    height: 10vh;/*縦幅*/
+    background:#7DC698;/*背景色*/
+    animation: fluidrotate 15s ease 0s infinite;/*アニメーションの設定*/
+    position: absolute;
+    top: 100px;
+    right: 350px;
+  }
+
+  .fluid3 {
+    width:25vh;/*横幅*/
+    height: 25vh;/*縦幅*/
+    background:#F3A0A0;/*背景色*/
+    animation: fluidrotate 25s ease 0s infinite;/*アニメーションの設定*/
+    position: absolute;
+    top: 300px;
+    right: 50px;
+  }
+
+  .fluid4 {
+    width:20vh;/*横幅*/
+    height: 20vh;/*縦幅*/
+    background:#8EC1F1;/*背景色*/
+    animation: fluidrotate 20s ease 0s infinite;/*アニメーションの設定*/
+    position: absolute;
+    top: 200px;
+    left: 300px;
+  }
+
+  .fluid5 {
+    width:20vh;/*横幅*/
+    height: 20vh;/*縦幅*/
+    background:#8EC1F1;/*背景色*/
+    animation: fluidrotate 20s ease 0s infinite;/*アニメーションの設定*/
+    position: absolute;
+    top: -100px;
+    right: 20px;
+  }
+
+  .fluid6 {
+    width:15vh;/*横幅*/
+    height: 15vh;/*縦幅*/
+    background:#F3A0A0;/*背景色*/
+    animation: fluidrotate 18s ease 0s infinite;/*アニメーションの設定*/
+    position: absolute;
+    top: 450px;
+    left: 100px;
+  }
+
+  .fluid7 {
+    width:15vh;/*横幅*/
+    height: 15vh;/*縦幅*/
+    background:#F3A0A0;/*背景色*/
+    animation: fluidrotate 15s ease 0s infinite;/*アニメーションの設定*/
+    position: absolute;
+    top: 150px;
+    right: 100px;
+  }
+
+  .fluid8 {
+    width:15vh;/*横幅*/
+    height: 15vh;/*縦幅*/
+    background:#8EC1F1;/*背景色*/
+    animation: fluidrotate 15s ease 0s infinite;/*アニメーションの設定*/
+    position: absolute;
+    top: 10px;
+    left: 120px;
+  }
+  @media screen and (max-width: 767px) {
+  .fluid9 {
+    width:8vh;/*横幅*/
+    height: 8vh;/*縦幅*/
+    background:#F3A0A0;/*背景色*/
+    animation: fluidrotate 18s ease 0s infinite;/*アニメーションの設定*/
+    position: absolute;
+    top: 300px;
+    left: 20px;
+   
+  }
+
+  .fluid10 {
+    width:5vh;/*横幅*/
+    height: 5vh;/*縦幅*/
+    background:#7DC698;/*背景色*/
+    animation: fluidrotate 15s ease 0s infinite;/*アニメーションの設定*/
+    position: absolute;
+    top: 200px;
+    right: 20px;
+  }
+
+  .fluid11 {
+    width:6vh;/*横幅*/
+    height: 6vh;/*縦幅*/
+    background:#8EC1F1;/*背景色*/
+    animation: fluidrotate 16s ease 0s infinite;/*アニメーションの設定*/
+    position: absolute;
+    top: 50px;
+    left: 20px;
+   
+  }
+
+  .fluid12 {
+    width:10vh;/*横幅*/
+    height: 10vh;/*縦幅*/
+    background:#fff100;/*背景色*/
+    animation: fluidrotate 20s ease 0s infinite;/*アニメーションの設定*/
+    position: absolute;
+    top: 500px;
+    right: 10px;
+   
+  }
+
+  .fluid13 {
+    width:8vh;/*横幅*/
+    height: 8vh;/*縦幅*/
+    background:#7DC698;/*背景色*/
+    animation: fluidrotate 15s ease 0s infinite;/*アニメーションの設定*/
+    position: absolute;
+    top: -90px;
+    left: 10px;
+   
+  }
+
+  .fluid14 {
+    width:6vh;/*横幅*/
+    height: 6vh;/*縦幅*/
+    background:#fff100;/*背景色*/
+    animation: fluidrotate 15s ease 0s infinite;/*アニメーションの設定*/
+    position: absolute;
+    top: 120px;
+    right: 20px;
+   
+  }
+  }
+
+  @media screen and (max-width: 767px) {
+    .fluid,
+    .fluid2,
+    .fluid3,
+    .fluid4,
+    .fluid5,
+    .fluid6,
+    .fluid7,
+    .fluid8 {
+        display: none;
+    }
+  }
+
+ 
+   /* products
+  =================================================*/
+  .products {
+    max-width: 940px;
+    
+ }
+  
+  @media screen and (max-width: 767px) {
+    .products {
+      max-width: 340px;
+    }
+  }
+  
+  .products-list {
+    margin-top: 64px;
+    padding: 0;
+  }
+  
+  @media screen and (max-width: 767px) {
+    .products-list {
+      margin-top: 48px;
+    }
+  }
+  
+  @media screen and (min-width: 768px) {
+    .products-list {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: justify;
+          -ms-flex-pack: justify;
+              justify-content: space-between;
+    }
+  }
+  
+  @media screen and (min-width: 768px) {
+    .products-item {
+      -webkit-box-flex: 0;
+          -ms-flex: 0 0 27.6%;
+              flex: 0 0 27.6%;
+    }
+  }
+  
+  @media screen and (max-width: 767px) {
+    .products-item + .products-item {
+      margin-top: 40px;
+    }
+  }
+
+.products-item-link {
+    display: block;
+    //とりあえずのdisplay: block;
+    color: #000;
+    font-size: 14px;
+}
+
+@media screen and (min-width: 768px) {
+    .products-item-link {
+        &:hover {
+            .products-item-picture> img {
+                transform: scale(1.05);
+            }
+        }
+    }
+}
+    
+    
+    .products-item-picture {
+        overflow: hidden;
+        border-radius: 200px;
+        //scaleは大きくなるけど、既存の画像サイズからはみ出した分はhiddenするということ。
+        > img {
+            transition:transform .4s;
+            width: 100%;
+            border-radius: 200px;
+        }
+    }
+
+    @media screen and (max-width: 767px) {
+        .products-item-picture {
+
+            img {
+                width: 80%;
+                display: block;
+                margin: 0 auto;
+              
+                
+                
+            }
+        }
+    }
+
+    .products-item {
+        list-style: none;
+    }
+
+
+.products-item-body {
+    margin-top: 22px;
+}
+@media screen and (max-width: 767px) {
+    .products-item-body {
+        text-align: center;
+    }
+}
+
+.products-item-cost {
+    color: #000;
+    margin-top: 10px;
+}
+
+.products-footer {
+    text-align: center;
+    margin-top: 44px;
+}
+
+@media screen and (min-width: 768px) {
+    .products-footer {
+        margin-top: 42px;
+    }
+}
+
+.util-link {
+    //buttonのcssねこれ。buttonタグのcssは重要だよ！！
+    font-size: 14px;
+    letter-spacing: .1em;
+    //   デザインカンプがある時のletter-spacingの求め方はAV/sizeということを覚えとこう。
+    color: #000;
+    border: solid 1px #000; 
+    border-radius: 50px;
+    background: #fff;
+    display: inline-block;
+    //block要素にするとborderが画面幅いっぱいに広がってしまうからinline-blockね。
+    padding: 10px 54px;
+    transition: background-color .4s,color .4s;
+    text-decoration: none;
+
+    &.-active {
+        background: #000;
+        color:#fff;
+    }
+}
+
+    @media screen and (min-width: 768px) {
+
+        .util-link {
+
+            &:not(.-submit) {
+                &:hover {
+                    background: #000;
+                    color:#fff;
+                    }
+                }
+        }
+
+  }
+
+  footer {
+      padding-top: 100px;
+      position: relative;
+
+      h3 {
+          text-align: center;
+          padding-bottom: 100px;
+      }
+  }
+  @media screen and (max-width: 767px) {
+    footer {
+        padding-top: 0;
+    }
+  }
+
+  @media screen and (max-width: 767px) {
+      footer h3 {
+        font-size: 13px;
+        padding-bottom: 20px; 
+      }
+  }
+
+
+ .waveCanvas3 {
+    padding-top: 100px;
+  }
+
+  .night {
+    transition-duration: .5s;
+  }
